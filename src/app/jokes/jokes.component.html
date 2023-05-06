@@ -1,0 +1,106 @@
+<!-- logo at top nd center -->
+
+<div class="container text-center">
+  <div class="logo" style="margin-top: 10px">
+    <img
+      src="/assets/chucknorris_logo_coloured_small@2x.png"
+      alt=""
+      width="300px"
+    />
+  </div>
+</div>
+
+<!-- button for random jokes function. -->
+
+<div class="container input-group mb-3">
+  <input
+    (click)="randomJoke()"
+    style="background-color: rgb(195, 71, 71); color: white; box-shadow: none"
+    type="button"
+    class="form-control"
+    aria-label="Text input with dropdown button"
+    value="Click me for a Lot Pot !"
+  />
+</div>
+
+<!-- api error message -->
+
+<div class="text-center jokesData">
+  <p>{{ jokesError }}</p>
+</div>
+
+<!-- categories of jocks -->
+
+<div class="container text-center categories">
+  <div class="row">
+    <div class="col-2">
+      <div class="row" style="width: 230px">
+        <h6
+          style="
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            font-size: larger;
+          "
+        >
+          <!-- filter Category using input -->
+
+          Choose a Category
+          <hr style="color: red" />
+          <input
+            placeholder="Search "
+            [(ngModel)]="filterText"
+            (input)="filterCategoryUsingInput()"
+            style="
+              margin-top: 20px;
+              margin-bottom: 10px;
+              height: 35px;
+              box-shadow: none;
+            "
+            type="text"
+            class="form-control"
+            aria-label="Text input with dropdown button"
+          />
+        </h6>
+
+        <!-- showing all categories using for loop -->
+
+        <div
+          class="scrollable-container"
+          style="height: 400px; overflow: auto; text-align: left"
+        >
+          <ul class="list-group custom-list-group">
+            <li
+              *ngFor="let types of filteredJokesType"
+              (click)="filterTypesOfJokes(types)"
+              style="font-size: smaller; border: none"
+              class="list-group-item"
+              id="animal"
+            >
+              {{ types | uppercase }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- showing jokes here in h3 -->
+
+    <div class="col jokesMessage" *ngFor="let jokes of iconAndValue">
+      <h3
+        style="margin-left: 50px; font-family: 'Times New Roman', Times, serif"
+      >
+        {{ jokes.value | myPipeName }} 😂
+        <div class="gif">
+          <img
+            [src]="'/assets/' + randomValue + '.gif'"
+            alt=""
+            srcset=""
+            height="200px"
+          />
+        </div>
+      </h3>
+    </div>
+  </div>
+</div>
+
+<hr />

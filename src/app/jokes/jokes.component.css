@@ -1,0 +1,47 @@
+.categories {
+  margin-top: 60px;
+}
+/* category hover  */
+
+.list-group-item:hover {
+  border-radius: 0px;
+  scroll-behavior: auto;
+  cursor: pointer;
+  background-color: rgb(245, 245, 203);
+  color: brown;
+}
+
+/* scroll bar always visible */
+
+.scrollable-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* inputFilter */
+
+.input-group {
+  margin-top: 30px;
+  width: 30%;
+}
+
+/* jokes */
+.jokesMessage {
+  margin-top: 15%;
+  text-align: left;
+}
+
+/* gif image */
+
+.gif {
+  text-align: right;
+}
