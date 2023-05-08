@@ -45,3 +45,13 @@
 .gif {
   text-align: right;
 }
+
+/* CSS for responsiveness */
+
+@media (max-width: 767px) {
+  /* Reduce font size and height of input field for small screens */
+  input.form-control {
+    height: 30px;
+    font-size: small;
+  }
+}
