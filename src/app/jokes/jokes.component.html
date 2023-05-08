@@ -19,8 +19,9 @@
       background-color: rgb(195, 71, 71);
       color: white;
       box-shadow: none;
-      margin-top: 30px;
+      margin-top: 20px;
       font-size: 1.2rem;
+      width: fit-content;
       height: max-content;
     "
     type="button"
@@ -40,7 +41,7 @@
 
 <div class="container text-center categories">
   <div class="row">
-    <div class="col-lg-2 col-md-3 col-sm-12">
+    <div class="col-lg-3 col-md-3 col-sm-12">
       <div class="row" style="width: 100%">
         <h6
           style="
@@ -93,12 +94,10 @@
     <!-- showing jokes here in h3 -->
 
     <div
-      class="col-lg-10 col-md-9 col-sm-12 jokesMessage"
+      class="col-lg-8 col-md-9 col-sm-12 jokesMessage"
       *ngFor="let jokes of iconAndValue"
     >
-      <h3
-        style="margin-left: 50px; font-family: 'Times New Roman', Times, serif"
-      >
+      <h3 style="font-family: 'Times New Roman', Times, serif">
         {{ jokes.value | myPipeName }} 😂
         <div class="gif">
           <img
