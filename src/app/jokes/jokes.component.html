@@ -74,13 +74,13 @@
 
         <div
           class="scrollable-container"
-          style="height: 400px; overflow: auto; text-align: left"
+          style="height: 400px; overflow-y: auto; text-align: left"
         >
           <ul class="list-group custom-list-group">
             <li
               *ngFor="let types of filteredJokesType"
               (click)="filterTypesOfJokes(types)"
-              style="font-size: smaller; border: none"
+              style="font-size: smaller; border: none; padding: 5%"
               class="list-group-item"
               id="animal"
             >

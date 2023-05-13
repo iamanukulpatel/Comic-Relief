@@ -42,7 +42,6 @@ export class JokesComponent implements OnInit {
       this.jokes.category().subscribe((data) => {
         this.jokesType = data;
         this.filteredJokesType = this.jokesType; // Assigning  jokes type to  filteredJokesType to filter using input.
-        console.log(this.jokesType);
       });
     } catch (error) {
       this.jokesError = JSON.stringify(error);
