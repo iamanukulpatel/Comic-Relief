@@ -26,31 +26,27 @@ export class JokesComponent implements OnInit {
 
   //this jokesTpe data is array of all the category which api use.
 
-  jokesType: string[] = [
-    'animal',
-    'career',
-    'celebrity',
-    'dev',
-    'explicit',
-    'fashion',
-    'food',
-    'history',
-    'money',
-    'movie',
-    'music',
-    'political',
-    'religion',
-    'science',
-    'sport',
-    'travel',
-  ];
+  jokesType: string[] = [];
 
   constructor(private jokes: JokesApiService) {} //services of api .
 
   ngOnInit(): void {
-    this.filteredJokesType = this.jokesType; // Assigning  jokes type to  filteredJokesType to filter using input.
-
+    this.category();
     this.randomJoke(); //show random jokes default.
+  }
+
+  //jokes category
+
+  category(): void {
+    try {
+      this.jokes.category().subscribe((data) => {
+        this.jokesType = data;
+        this.filteredJokesType = this.jokesType; // Assigning  jokes type to  filteredJokesType to filter using input.
+        console.log(this.jokesType);
+      });
+    } catch (error) {
+      this.jokesError = JSON.stringify(error);
+    }
   }
 
   //filtered jokes function.

@@ -21,4 +21,12 @@ export class JokesApiService {
   getRandomJoke(): Observable<string> {
     return this.http.get<string>('https://api.chucknorris.io/jokes/random');
   }
+
+  //http get request for category of jokes.
+
+  category(): Observable<string[]> {
+    return this.http.get<string[]>(
+      'https://api.chucknorris.io/jokes/categories'
+    );
+  }
 }
