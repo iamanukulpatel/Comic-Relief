@@ -77,19 +77,32 @@
           style="height: 400px; overflow-y: auto; text-align: left"
         >
           <ul class="list-group custom-list-group">
-            <li
-              *ngFor="let types of filteredJokesType"
-              (click)="filterTypesOfJokes(types)"
-              style="font-size: smaller; border: none; padding: 5%"
-              class="list-group-item"
-              id="animal"
+            <ng-container
+              *ngIf="
+                filteredJokesType && filteredJokesType.length > 0;
+                else noCategoryFound
+              "
             >
-              {{ types | uppercase }}
-            </li>
+              <li
+                *ngFor="let types of filteredJokesType"
+                (click)="filterTypesOfJokes(types)"
+                style="font-size: smaller; border: none; padding: 5%"
+                class="list-group-item"
+                id="animal"
+              >
+                {{ types | uppercase }}
+              </li>
+            </ng-container>
           </ul>
         </div>
       </div>
     </div>
+
+    <ng-template #noCategoryFound>
+      <p style="font-size: 12px; color: #9999">
+        No Jokes Category found with name : {{ filterText }}
+      </p>
+    </ng-template>
 
     <!-- showing jokes here in h3 -->
 

@@ -65,7 +65,7 @@ export class JokesComponent implements OnInit {
 
   filterCategoryUsingInput() {
     this.filteredJokesType = this.jokesType.filter((type) =>
-      type.toLowerCase().includes(this.filterText.toLowerCase())
+      type.toLowerCase().includes(this.filterText.toLowerCase().trimStart())
     );
   }
 
